@@ -6,7 +6,7 @@ import Congrats from "./components/congrats/Congrats";
 
 function App() {
   return (
-    <div className='App'>
+    <div className='container'>
       <h1>Guessy</h1>
       <Congrats success={true} />
       <GuessedWords
