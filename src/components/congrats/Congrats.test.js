@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, ShallowWrapper } from "enzyme";
 
 import { findByTestAttr, checkProps } from "../../../test/testUtils";
 import Congrats from "./Congrats";
@@ -9,7 +9,7 @@ const defaultProps = { success: false };
 /** Factory function to create  for the Congrats component
  *  @function setup
  * @param {object} props - Component props specific to this setup
- * @returns}
+ * @returns {ShallowWrapper}
  */
 
 const setup = (props = {}) => {
