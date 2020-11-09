@@ -59,4 +59,16 @@ describe("render", () => {
     });
   });
 });
-describe("update state", () => {});
+
+describe("redux props", () => {
+  test("has success piece of state as prop", () => {
+    const store = storeFactory({ success: false });
+    const wrapper = shallow(<Input store={store} />).dive(); // note, single dive
+    expect(wrapper.props().success).toBe(false);
+  });
+  test("`guessWord` action creator is a function prop", () => {
+    const store = storeFactory();
+    const wrapper = shallow(<Input store={store} />).dive();
+    expect(wrapper.props().guessWord).toBeInstanceOf(Function);
+  });
+});
