@@ -2,12 +2,12 @@ import React from "react";
 import { shallow } from "enzyme";
 
 import { findByTestAttr, storeFactory } from "../../../test/testUtils";
-import Input from "./Input";
+import Input, { UnconnectedInput } from "./Input";
 
 /**
- * Factory function to create a ShallowWrapper for the GuessedWords component.
+ * Factory function to create a ShallowWrapper for the Input component.
  * @function setup
- * @param {*} initialState
+ * @param {object} initialState - Initial state for this setup.
  * @returns {ShallowWrapper}
  */
 const setup = (initialState = {}) => {
@@ -25,7 +25,6 @@ describe("render", () => {
       const initialState = { success: false };
       wrapper = setup(initialState);
     });
-
     test("renders component without error", () => {
       const component = findByTestAttr(wrapper, "component-input");
       expect(component.length).toBe(1);
@@ -45,7 +44,7 @@ describe("render", () => {
       const initialState = { success: true };
       wrapper = setup(initialState);
     });
-    test("does not render component without error", () => {
+    test("renders component without error", () => {
       const component = findByTestAttr(wrapper, "component-input");
       expect(component.length).toBe(1);
     });
@@ -53,22 +52,56 @@ describe("render", () => {
       const inputBox = findByTestAttr(wrapper, "input-box");
       expect(inputBox.length).toBe(0);
     });
-    test("does not renders submit button", () => {
-      const submitButton = findByTestAttr(wrapper, "submit-button");
-      expect(submitButton.length).toBe(0);
+    test("does not render submit button", () => {
+      const submit = findByTestAttr(wrapper, "submit-button");
+      expect(submit.length).toBe(0);
     });
   });
 });
 
 describe("redux props", () => {
   test("has success piece of state as prop", () => {
-    const store = storeFactory({ success: false });
-    const wrapper = shallow(<Input store={store} />).dive(); // note, single dive
-    expect(wrapper.props().success).toBe(false);
+    const success = true;
+    const wrapper = setup({ success });
+    const successProp = wrapper.instance().props.success;
+    expect(successProp).toBe(success);
   });
   test("`guessWord` action creator is a function prop", () => {
-    const store = storeFactory();
-    const wrapper = shallow(<Input store={store} />).dive();
-    expect(wrapper.props().guessWord).toBeInstanceOf(Function);
+    const wrapper = setup();
+    const guessWordProp = wrapper.instance().props.guessWord;
+    expect(guessWordProp).toBeInstanceOf(Function);
+  });
+});
+
+describe("`guessWord` action creator", () => {
+  let guessWordMock;
+  let wrapper;
+  const guessedWord = "train";
+  beforeEach(() => {
+    // set up mock for `guessWord`
+    guessWordMock = jest.fn();
+
+    const props = {
+      guessWord: guessWordMock
+    };
+
+    // set up app component with guessWordMock as the guessWord prop
+    wrapper = shallow(<UnconnectedInput {...props} />);
+
+    // add value to unput box
+    wrapper.setState({ currentGuess: guessedWord });
+
+    // simulate click
+    const submitButton = findByTestAttr(wrapper, "submit-button");
+    submitButton.simulate("click", { preventDefault() {} });
+  });
+  test("guessWord runs on mount", () => {
+    // check to see if mock ran
+    const guessWordCallCount = guessWordMock.mock.calls.length;
+    expect(guessWordCallCount).toBe(1);
+  });
+  test("calls `guessWord` with input value as argument", () => {
+    const guessWordArg = guessWordMock.mock.calls[0][0];
+    expect(guessWordArg).toBe(guessedWord);
   });
 });
