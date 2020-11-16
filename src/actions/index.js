@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import { getLetterMatchCount } from "../helpers";
+import key from "../default";
 
 export const actionTypes = {
   CORRECT_GUESS: "CORRECT_GUESS",
@@ -31,12 +32,29 @@ export const guessWord = (guessedWord) => {
 };
 
 export const getSecretWord = () => {
+  const options = {
+    method: "GET",
+    url: "https://wordsapiv1.p.rapidapi.com/words/",
+    params: { random: "true" },
+    headers: {
+      "x-rapidapi-key": key,
+      "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
+    }
+  };
   return (dispatch) => {
-    return axios.get("http://localhost:3030").then((response) => {
-      dispatch({
-        type: actionTypes.SET_SECRET_WORD,
-        payload: response.data
+    axios
+      .request(options)
+      .then(function (response) {
+        const word = response.data.word.split(" ");
+        console.log(response.data);
+        console.log(word[0]);
+        dispatch({
+          type: actionTypes.SET_SECRET_WORD,
+          payload: word[0]
+        });
+      })
+      .catch(function (error) {
+        console.error(error);
       });
-    });
   };
 };
