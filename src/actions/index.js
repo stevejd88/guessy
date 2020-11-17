@@ -37,7 +37,7 @@ export const getSecretWord = () => {
     url: "https://wordsapiv1.p.rapidapi.com/words/",
     params: { random: "true" },
     headers: {
-      "x-rapidapi-key": key,
+      "x-rapidapi-key": process.env.REACT_APP_API_KEY,
       "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
     }
   };
