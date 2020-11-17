@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/guessy/static/css/main.ab7136cd.chunk.css",
-    "main.js": "/guessy/static/js/main.5fddbb20.chunk.js",
-    "main.js.map": "/guessy/static/js/main.5fddbb20.chunk.js.map",
+    "main.js": "/guessy/static/js/main.6ac5d4d0.chunk.js",
+    "main.js.map": "/guessy/static/js/main.6ac5d4d0.chunk.js.map",
     "runtime-main.js": "/guessy/static/js/runtime-main.76331b81.js",
     "runtime-main.js.map": "/guessy/static/js/runtime-main.76331b81.js.map",
     "static/js/2.96aeafcd.chunk.js": "/guessy/static/js/2.96aeafcd.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.76331b81.js",
     "static/js/2.96aeafcd.chunk.js",
     "static/css/main.ab7136cd.chunk.css",
-    "static/js/main.5fddbb20.chunk.js"
+    "static/js/main.6ac5d4d0.chunk.js"
   ]
 }
