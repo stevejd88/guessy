@@ -1,38 +1,41 @@
-.App {
+body {
+  background-color: #00e3e3;
+  background-image: url('./assets/brick-wal.png');
+  font-family: 'Dosis', sans-serif;
+}
+
+.container {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-family: 'Modak', cursive;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+input {
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.rules {
+  border: 5px ridge gold;
+  border-radius: 5px;
+  background-color: white;
+  padding: 2px;
+}
+
+.body-row {
+  background-color: white;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  .rules,
+  input,
+  button {
+    font-size: 1.5rem;
   }
 }
