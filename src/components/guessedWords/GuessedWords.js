@@ -1,15 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const GuessedWords = (props) => {
   let contents;
   if (props.guessedWords.length === 0) {
     contents = (
-      <span data-test='guess-instructions'>Try to guess the secret word!</span>
+      <p className='rules' data-test='guess-instructions'>
+        Try to guess the secret word! Matching letters might not be in the same
+        order as your guess.
+      </p>
     );
   } else {
     const guessedWordsRows = props.guessedWords.map((word, index) => (
-      <tr data-test='guessed-word' key={index}>
+      <tr className='body-row' data-test='guessed-word' key={index}>
         <td>{word.guessedWord}</td>
         <td>{word.letterMatchCount}</td>
       </tr>

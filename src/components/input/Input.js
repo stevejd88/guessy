@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { guessWord } from "../../actions";
+import { guessWord } from '../../actions';
 
 export class UnconnectedInput extends Component {
   /**
@@ -13,7 +13,7 @@ export class UnconnectedInput extends Component {
     super(props);
 
     // initialize state
-    this.state = { currentGuess: "" };
+    this.state = { currentGuess: '' };
 
     // bind this for submitGuessedWord
     this.submitGuessedWord = this.submitGuessedWord.bind(this);
@@ -25,7 +25,7 @@ export class UnconnectedInput extends Component {
 
     if (guessedWord && guessedWord.length > 0) {
       this.props.guessWord(guessedWord);
-      this.setState({ currentGuess: "" });
+      this.setState({ currentGuess: '' });
     }
   }
 
@@ -34,7 +34,7 @@ export class UnconnectedInput extends Component {
       <form form='form-inline'>
         <input
           data-test='input-box'
-          className='mb-2 mx-sm-3'
+          className='mx-sm-3'
           type='text'
           value={this.state.currentGuess}
           onChange={(e) => this.setState({ currentGuess: e.target.value })}
