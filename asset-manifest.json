@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/guessy/static/css/main.ab7136cd.chunk.css",
-    "main.js": "/guessy/static/js/main.0617eb17.chunk.js",
-    "main.js.map": "/guessy/static/js/main.0617eb17.chunk.js.map",
+    "main.css": "/guessy/static/css/main.d0188a66.chunk.css",
+    "main.js": "/guessy/static/js/main.7313b191.chunk.js",
+    "main.js.map": "/guessy/static/js/main.7313b191.chunk.js.map",
     "runtime-main.js": "/guessy/static/js/runtime-main.76331b81.js",
     "runtime-main.js.map": "/guessy/static/js/runtime-main.76331b81.js.map",
     "static/js/2.96aeafcd.chunk.js": "/guessy/static/js/2.96aeafcd.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.1ce674a8.chunk.js": "/guessy/static/js/3.1ce674a8.chunk.js",
     "static/js/3.1ce674a8.chunk.js.map": "/guessy/static/js/3.1ce674a8.chunk.js.map",
     "index.html": "/guessy/index.html",
-    "static/css/main.ab7136cd.chunk.css.map": "/guessy/static/css/main.ab7136cd.chunk.css.map",
+    "static/css/main.d0188a66.chunk.css.map": "/guessy/static/css/main.d0188a66.chunk.css.map",
     "static/js/2.96aeafcd.chunk.js.LICENSE.txt": "/guessy/static/js/2.96aeafcd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.76331b81.js",
     "static/js/2.96aeafcd.chunk.js",
-    "static/css/main.ab7136cd.chunk.css",
-    "static/js/main.0617eb17.chunk.js"
+    "static/css/main.d0188a66.chunk.css",
+    "static/js/main.7313b191.chunk.js"
   ]
 }
